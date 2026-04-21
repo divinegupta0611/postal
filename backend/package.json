@@ -1,0 +1,16 @@
+{
+  "scripts": {
+    "devStart": "nodemon index.js"
+  },
+  "dependencies": {
+    "@google/genai": "^1.50.1",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "groq-sdk": "^1.1.2",
+    "openai": "^6.34.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
