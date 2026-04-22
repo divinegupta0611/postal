@@ -5,15 +5,16 @@ import BrandProfile from "./BrandProfile";
 import Studio from "./Studios";
 import History from "./History";
 import Chat from "./Chat";
+import Settings from './Settings';
 import "../styles/DashboardCSS.css";
 
 const sidebarLinks = [
-  { id: "analytics",     label: "Analytics",     icon: "📊" },
-  { id: "brand-profile", label: "Brand Profile", icon: "🎨" },
-  { id: "studio",        label: "Studio",         icon: "⚡" },
-  { id: "history",       label: "History",        icon: "🕓" },
-  { id: "chat",          label: "Chat",           icon: "💬" },
-  { id: "settings",      label: "Settings",       icon: "⚙️" },
+  { id: "analytics",     label: "Analytics",     icon: "" },
+  { id: "brand-profile", label: "Brand Profile", icon: "" },
+  { id: "studio",        label: "Studio",         icon: "" },
+  { id: "history",       label: "History",        icon: "" },
+  { id: "chat",          label: "Chat",           icon: "" },
+  { id: "settings",      label: "Settings",       icon: "" },
 ];
 
 const Placeholder = ({ icon, label }) => (
@@ -34,6 +35,7 @@ const Dashboard = () => {
       case "studio":        return <Studio />;
       case "history":       return <History />;
       case "chat":          return <Chat />;
+      case "settings":      return <Settings />;
       default:
         const link = sidebarLinks.find(l => l.id === active);
         return <Placeholder icon={link?.icon} label={link?.label} />;

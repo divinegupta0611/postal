@@ -77,10 +77,10 @@ const platformColors = {
 };
 
 const features = [
-  { icon: "🧠", title: "Brand Memory", desc: "Upload your docs, pitch decks, blogs — Postal learns your voice and never forgets it." },
-  { icon: "⚡", title: "One Idea → 3 Platforms", desc: "From LinkedIn stories to X threads to Instagram captions, all from a single prompt." },
-  { icon: "📅", title: "Smart Scheduling", desc: "Set your cadence once. Postal generates and queues weeks of content automatically." },
-  { icon: "📈", title: "Self-Improving AI", desc: "Every like and comment teaches Postal what works. Your content gets smarter over time." },
+  { icon: "", title: "Brand Memory", desc: "Upload your docs, pitch decks, blogs — Postal learns your voice and never forgets it." },
+  { icon: "", title: "One Idea → 3 Platforms", desc: "From LinkedIn stories to X threads to Instagram captions, all from a single prompt." },
+  { icon: "", title: "Smart Scheduling", desc: "Set your cadence once. Postal generates and queues weeks of content automatically." },
+  { icon: "", title: "Self-Improving AI", desc: "Every like and comment teaches Postal what works. Your content gets smarter over time." },
 ];
 
 // Read user synchronously so it's available on first render — no flicker
@@ -96,6 +96,12 @@ const getStoredUser = () => {
 const Home = () => {
   const heroRef = useRef(null);
   const [user, setUser] = useState(getStoredUser);
+
+useEffect(() => {
+  const onStorage = () => setUser(getStoredUser());
+  window.addEventListener("storage", onStorage);
+  return () => window.removeEventListener("storage", onStorage);
+}, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -123,7 +129,7 @@ const Home = () => {
           {/* Bold welcome — shown immediately above headline when logged in */}
           {user && (
             <div className="hero__welcome">
-              👋 Welcome, <span className="hero__welcome--name">{user.fullname}</span>
+                Welcome, <span className="hero__welcome--name">{user.fullname}</span>
             </div>
           )}
 

@@ -33,8 +33,9 @@ const NavigationBar = () => {
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
-    localStorage.clear();
+    localStorage.removeItem("postal_user"); // instead of localStorage.clear()
     setUser(null);
+    window.dispatchEvent(new Event("storage"));
     setMenuOpen(false);
     navigate("/");
   };

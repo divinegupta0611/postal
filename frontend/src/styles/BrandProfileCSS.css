@@ -523,3 +523,122 @@
   .bp-platform-group { gap: 0.5rem; }
   .bp-platform-card { min-width: 80px; padding: 0.8rem 1rem; }
 }
+/* ── Connected Accounts ── */
+.bp-connect-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.bp-connect-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--surface2, #13132A);
+  border: 1px solid var(--border, rgba(255,255,255,0.07));
+  border-radius: 12px;
+  padding: 14px 18px;
+  transition: border-color 0.2s;
+}
+
+.bp-connect-card:hover {
+  border-color: rgba(255, 220, 80, 0.2);
+}
+
+.bp-connect-card__left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.bp-connect-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.bp-connect-icon--linkedin  { background: #0A66C2; color: #fff; }
+.bp-connect-icon--twitter   { background: #000; color: #fff; border: 1px solid rgba(255,255,255,0.15); }
+.bp-connect-icon--instagram { background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); color: #fff; }
+.bp-connect-icon--threads   { background: #101010; color: #fff; border: 1px solid rgba(255,255,255,0.15); }
+
+.bp-connect-name {
+  font-size: 0.93rem;
+  font-weight: 600;
+  color: var(--text, #F0F0FF);
+}
+
+.bp-connect-status {
+  font-size: 0.78rem;
+  color: var(--text-muted, rgba(240,240,255,0.55));
+  margin-top: 2px;
+}
+
+.bp-connect-btn {
+  background: transparent;
+  border: 1px solid var(--accent, #FFDC50);
+  color: var(--accent, #FFDC50);
+  border-radius: 8px;
+  padding: 8px 18px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+
+.bp-connect-btn:hover {
+  background: var(--accent, #FFDC50);
+  color: #05050F;
+}
+
+.bp-connect-btn--connected {
+  border-color: #6DFFAA;
+  color: #6DFFAA;
+}
+
+.bp-connect-btn--connected:hover {
+  background: #6DFFAA;
+  color: #05050F;
+}
+.bp-connect-status--connected {
+  color: #6DFFAA;
+}
+
+.bp-connect-btn--soon {
+  opacity: 0.4;
+  cursor: not-allowed;
+  border-color: var(--text-muted);
+  color: var(--text-muted);
+}
+
+.bp-connect-btn--soon:hover {
+  background: transparent;
+  color: var(--text-muted);
+}
+
+.bp-connect-spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255,220,80,0.3);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+.bp-connect-error {
+  background: rgba(255,107,107,0.08);
+  border: 1px solid rgba(255,107,107,0.2);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 0.85rem;
+  color: var(--accent2);
+  margin-bottom: 12px;
+}

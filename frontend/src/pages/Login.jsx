@@ -34,30 +34,37 @@ const Login = () => {
     if (serverError) setServerError("");
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const errs = validate();
-    if (Object.keys(errs).length) { setErrors(errs); return; }
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  const errs = validate();
+  if (Object.keys(errs).length) { setErrors(errs); return; }
 
-    setLoading(true);
-    setServerError("");
+  setLoading(true);
+  setServerError("");
 
-    try {
-      const { error } = await supabase.auth.signInWithPassword({
-        email: form.email,
-        password: form.password,
-      });
+  try {
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email: form.email,
+      password: form.password,
+    });
 
-      if (error) throw error;
+    if (error) throw error;
 
-      navigate("/");
+    localStorage.setItem("postal_user", JSON.stringify({
+      fullname: data.user.user_metadata.full_name,
+      companyName: data.user.user_metadata.company_name,
+      email: data.user.email,
+    }));
 
-    } catch (err) {
-      setServerError(err.message || "Invalid credentials. Please try again.");
-    } finally {
-      setLoading(false);
-    }
-  };
+    navigate("/");
+
+  } catch (err) {
+    console.error("Login error:", err);
+    setServerError(err.message || "Invalid credentials. Please try again.");
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <div className="auth-page">

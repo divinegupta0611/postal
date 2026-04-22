@@ -51,8 +51,6 @@ const TagInput = ({ value, onChange, placeholder }) => {
     setInput("");
   };
 
-  const remove = (item) => onChange(value.filter((v) => v !== item));
-
   return (
     <div className="bp-tag-input">
       <div className="bp-tags">
@@ -480,7 +478,62 @@ useEffect(() => {
               onChange={(e) => set("blogs", e.target.value)} />
           </Field>
         </Section>
+        {/* ── 9. CONNECTED ACCOUNTS ── */}
+<Section icon="🔗" title="Connected Accounts">
+  <Field label="Connect your social platforms" hint="Link your accounts so Postal can schedule and publish posts directly.">
+    <div className="bp-connect-group">
 
+      {/* LinkedIn */}
+      <div className="bp-connect-card">
+        <div className="bp-connect-card__left">
+          <span className="bp-connect-icon bp-connect-icon--linkedin">in</span>
+          <div>
+            <div className="bp-connect-name">LinkedIn</div>
+            <div className="bp-connect-status">Not connected</div>
+          </div>
+        </div>
+        <button type="button" className="bp-connect-btn">Connect</button>
+      </div>
+
+      {/* X (Twitter) */}
+      <div className="bp-connect-card">
+        <div className="bp-connect-card__left">
+          <span className="bp-connect-icon bp-connect-icon--twitter">𝕏</span>
+          <div>
+            <div className="bp-connect-name">X (Twitter)</div>
+            <div className="bp-connect-status">Not connected</div>
+          </div>
+        </div>
+        <button type="button" className="bp-connect-btn">Connect</button>
+      </div>
+
+      {/* Instagram */}
+      <div className="bp-connect-card">
+        <div className="bp-connect-card__left">
+          <span className="bp-connect-icon bp-connect-icon--instagram">◈</span>
+          <div>
+            <div className="bp-connect-name">Instagram</div>
+            <div className="bp-connect-status">Not connected</div>
+          </div>
+        </div>
+        <button type="button" className="bp-connect-btn">Connect</button>
+      </div>
+
+      {/* Threads */}
+      <div className="bp-connect-card">
+        <div className="bp-connect-card__left">
+          <span className="bp-connect-icon bp-connect-icon--threads">@</span>
+          <div>
+            <div className="bp-connect-name">Threads</div>
+            <div className="bp-connect-status">Not connected</div>
+          </div>
+        </div>
+        <button type="button" className="bp-connect-btn">Connect</button>
+      </div>
+
+    </div>
+  </Field>
+</Section>
         {/* ── SUBMIT ── */}
         <div className="bp-submit-row">
           <button type="submit" className="bp-submit">
